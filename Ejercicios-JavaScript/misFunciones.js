@@ -5,6 +5,7 @@
  * @param {number} valor- el valor de los inputs de los metros, yardas, pies y pulgadas
  * @return
  */
+
 function cambiarUnidades(id,valor){
     if(isNaN(valor)){
         alert("se ingreso un valor invalido");
@@ -30,7 +31,18 @@ function cambiarUnidades(id,valor){
         document.lasunidades.unid_pie.value = 3*valor;
     }
 }
-
+function convertirgr(id){
+ var grad, rad;
+ if(id=="grados"){
+     grad = document.getElementById("grados").value;
+     rad = (grad*Math.PI)/180;
+ }else if(id=="radianes"){
+     rad = document.getElementById("radianes").value;
+     grad = (rad*180)/Math.PI;
+ }
+ document.getElementById("grados").value = grad;
+    document.getElementById("radianes").value = rad;
+}
 
 
 
