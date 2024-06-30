@@ -1,10 +1,45 @@
 /**
- * Descripción
- * @method Nombre de la función
- * @param Parámetro A
- * @param Parámetro B
- * @return Valor que retorna
+ * conversion de unidades de metros, yardas, pies y pulgadas
+ * @method cambiarUnidades
+ * @param {strimg} id- el id de los metros, yardas, pies y pulgadas
+ * @param {number} valor- el valor de los inputs de los metros, yardas, pies y pulgadas
+ * @return
  */
+function cambiarUnidades(id,valor){
+    if(isNaN(valor)){
+        alert("se ingreso un valor invalido");
+       document.lasunidades.unid_metro.value = "";
+        document.lasunidades.unid_pulgada.value = "";
+        document.lasunidades.unid_pie.value = "";
+        document.lasunidades.unid_yarda = "";
+    }else if(id=="metro"){
+        document.lasunidades.unid_pulgada.value = 39.3701*valor;
+        document.lasunidades.unid_pie.value = 3.28084*valor;
+        document.lasunidades.unid_yarda = 1.093561*valor;
+    }else if(id=="pulgada"){
+        document.lasunidades.unid_metro.value = 0.0254*valor;
+        document.lasunidades.unid_pie.value = 0.0833333*valor;
+        document.lasunidades.unid_yarda = 0.0277777666667*valor;
+    }else if(id=="pie"){
+        document.lasunidades.unid_metro.value = 0.30479987808036579366*valor;
+        document.lasunidades.unid_pulgada.value = 11.999995200014401675*valor;
+        document.lasunidades.unid_yarda = 0.33333320000040006503*valor;
+    }else if(id=="yarda"){
+        document.lasunidades.unid_metro.value = 0.9144*valor;
+        document.lasunidades.unid_pulgada.value = 36*valor;
+        document.lasunidades.unid_pie.value = 3*valor;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 function dibujarCirculoCuadrado(){
     const canvas=document.getElementById("myCanvas");
