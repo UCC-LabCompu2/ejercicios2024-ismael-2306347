@@ -67,8 +67,8 @@ function convertirgr(id){
 
 
 function dibujarCirculoCuadrado(){
-    const canvas=document.getElementById("myCanvas");
-    const ctx = canvas.getContext("2d");
+    var canvas=document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
 
     const anchoMax = canvas.weight;
     const alturaMax =canvas.height;
