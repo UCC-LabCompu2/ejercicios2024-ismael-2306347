@@ -56,16 +56,6 @@ function convertirgr(id){
  document.getElementById("grados").value = grad;
     document.getElementById("radianes").value = rad;
 }
-
-
-
-
-
-
-
-
-
-
 function dibujarCirculoCuadrado(){
     var canvas=document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -87,7 +77,7 @@ function cargarEventListener(){
 }
 var bardera;
 function dibujar(event){
-    const canvas = document.getElementById("myCanvas");
+    const canvas = document.getElementById("canvasAdibujar");
     const ctx =canvas.getContext("2d");
 
     let posX = event.clientX;
@@ -99,6 +89,7 @@ function dibujar(event){
     canvas.onmouseup = function (){bardera=false};
     if(bandera){
         ctx.fillRect(posX, posY,5,5);
+        ctx.fill;
     }
 }
 function borrarCanvas(){
@@ -183,4 +174,10 @@ function cargarResultado(){
     un = urlcomp.split("#")[2];
 
     document.getElementById("dist").value = can + " " + un;
+}
+function limpiarcanvas(){
+    const canvas = document.getElementById("canvasAdibujar");
+    const ctx =canvas.getContext("2d");
+
+   canvas.width = canvas.width;
 }
