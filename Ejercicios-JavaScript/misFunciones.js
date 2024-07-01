@@ -168,3 +168,19 @@ function calculardiv(){
     num2=number(document.getElementById("div_num2")[0].value);
     document.getElementById("div_total")[0].innerHTML=num1/num2;
 }
+function cargarweb(){
+    var cant, unidad , urlComp;
+    cont = document.getElementById("distancia").value;
+    unidad = document.getElementById("unidades").value;
+
+    urlComp = "segundaWeb.html#" + cant + "#";
+    window.open(urlComp);
+}
+function cargarResultado(){
+    var urlcomp, cant, un;
+    urlcomp = window.location.href.split("/")[5];
+    can = urlcomp.split("#")[1];
+    un = urlcomp.split("#")[2];
+
+    document.getElementById("dist").value = can + " " + un;
+}
