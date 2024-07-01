@@ -6,103 +6,104 @@
  * @return
  */
 
-function cambiarUnidades(id,valor){
-    if(isNaN(valor)){
+function cambiarUnidades(id, valor) {
+    if (isNaN(valor)) {
         alert("se ingreso un valor invalido");
-       document.lasunidades.unid_metro.value = "";
+        document.lasunidades.unid_metro.value = "";
         document.lasunidades.unid_pulgada.value = "";
         document.lasunidades.unid_pie.value = "";
         document.lasunidades.unid_yarda = "";
-    }else if(id=="metro"){
-        document.lasunidades.unid_pulgada.value = 39.3701*valor;
-        document.lasunidades.unid_pie.value = 3.28084*valor;
-        document.lasunidades.unid_yarda = 1.093561*valor;
-    }else if(id=="pulgada"){
-        document.lasunidades.unid_metro.value = 0.0254*valor;
-        document.lasunidades.unid_pie.value = 0.0833333*valor;
-        document.lasunidades.unid_yarda = 0.0277777666667*valor;
-    }else if(id=="pie"){
-        document.lasunidades.unid_metro.value = 0.30479987808036579366*valor;
-        document.lasunidades.unid_pulgada.value = 11.999995200014401675*valor;
-        document.lasunidades.unid_yarda = 0.33333320000040006503*valor;
-    }else if(id=="yarda"){
-        document.lasunidades.unid_metro.value = 0.9144*valor;
-        document.lasunidades.unid_pulgada.value = 36*valor;
-        document.lasunidades.unid_pie.value = 3*valor;
+    } else if (id == "metro") {
+        document.lasunidades.unid_pulgada.value = 39.3701 * valor;
+        document.lasunidades.unid_pie.value = 3.28084 * valor;
+        document.lasunidades.unid_yarda = 1.093561 * valor;
+    } else if (id == "pulgada") {
+        document.lasunidades.unid_metro.value = 0.0254 * valor;
+        document.lasunidades.unid_pie.value = 0.0833333 * valor;
+        document.lasunidades.unid_yarda = 0.0277777666667 * valor;
+    } else if (id == "pie") {
+        document.lasunidades.unid_metro.value = 0.30479987808036579366 * valor;
+        document.lasunidades.unid_pulgada.value = 11.999995200014401675 * valor;
+        document.lasunidades.unid_yarda = 0.33333320000040006503 * valor;
+    } else if (id == "yarda") {
+        document.lasunidades.unid_metro.value = 0.9144 * valor;
+        document.lasunidades.unid_pulgada.value = 36 * valor;
+        document.lasunidades.unid_pie.value = 3 * valor;
     }
 }
-function convertirgr(id){
- var grad, rad;
- if(id=="grados"){
-     grad = document.getElementById("grados").value;
-     rad = (grad*Math.PI)/180;
- }else if(id=="radianes"){
-     rad = document.getElementById("radianes").value;
-     grad = (rad*180)/Math.PI;
- }
- document.getElementById("grados").value = grad;
+
+function convertirgr(id) {
+    var grad, rad;
+    if (id == "grados") {
+        grad = document.getElementById("grados").value;
+        rad = (grad * Math.PI) / 180;
+    } else if (id == "radianes") {
+        rad = document.getElementById("radianes").value;
+        grad = (rad * 180) / Math.PI;
+    }
+    document.getElementById("grados").value = grad;
     document.getElementById("radianes").value = rad;
 }
 
 
-
-
-
-
-
-
-
-
-function dibujarCirculoCuadrado(){
-    const canvas=document.getElementById("myCanvas");
+function dibujarCirculoCuadrado() {
+    const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
 
     const anchoMax = canvas.weight;
-    const alturaMax =canvas.height;
-    const lado= 200;
+    const alturaMax = canvas.height;
+    const lado = 200;
     const margen = 10;
 
-    ctx.fillStyle= "#338899";
-    ctx.fillRect(margen,alturaMax-lado-margen,lado,lado);
+    ctx.fillStyle = "#338899";
+    ctx.fillRect(margen, alturaMax - lado - margen, lado, lado);
 
-    ctx.arc(anchoMax/2, alturaMax/2, lado/2, 0, 2*Math.PI);
+    ctx.arc(anchoMax / 2, alturaMax / 2, lado / 2, 0, 2 * Math.PI);
     ctx.stroke();
     ctx.fill();
 }
-function cargarEventListener(){
+
+function cargarEventListener() {
     document.getElementById("myCanvas").addEventListener("mousemove", dibujar);
 }
+
 var bardera;
-function dibujar(event){
+
+function dibujar(event) {
     const canvas = document.getElementById("myCanvas");
-    const ctx =canvas.getContext("2d");
+    const ctx = canvas.getContext("2d");
 
     let posX = event.clientX;
     let posY = event.clientY;
     console.log(posX, posY);
-    ctx.fillRect(posX,posY,5,5);
+    ctx.fillRect(posX, posY, 5, 5);
 
-    canvas.onmousemove = function (){bandera=true};
-    canvas.onmouseup = function (){bardera=false};
-    if(bandera){
-        ctx.fillRect(posX, posY,5,5);
+    canvas.onmousemove = function () {
+        bandera = true
+    };
+    canvas.onmouseup = function () {
+        bardera = false
+    };
+    if (bandera) {
+        ctx.fillRect(posX, posY, 5, 5);
     }
 }
-function borrarCanvas(){
-     const canvas = document.getElementById("myCanvas");
-     canvas.width= canvas.width;
+
+function borrarCanvas() {
+    const canvas = document.getElementById("myCanvas");
+    canvas.width = canvas.width;
 }
 
-function dibujarCuadriculado(){
+function dibujarCuadriculado() {
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
     const paso = 20;
     const anchoMax = canvas.width;
-    const alturaMax= canvas.height;
-    ctx.strokeStyle= "#7e7e7e"
+    const alturaMax = canvas.height;
+    ctx.strokeStyle = "#7e7e7e"
     //lineas horizantales
 
-    for (let i =paso;i<alturaMax;) {
+    for (let i = paso; i < alturaMax;) {
 
         ctx.beginPath();
         ctx.moveTo(0, i);
@@ -110,11 +111,11 @@ function dibujarCuadriculado(){
         ctx.stroke();
         ctx.closePath();
 
-        
+
         i += paso;
     }
     //lineas verticales
-    for (let i =paso;i<anchoMax;) {
+    for (let i = paso; i < anchoMax;) {
 
         ctx.beginPath();
         ctx.moveTo(i, 0);
@@ -124,34 +125,39 @@ function dibujarCuadriculado(){
         i += paso;
     }
 }
-function mostrar_ocultar(valorMO){
-    if(valorMO=="val_mostrar"){
+
+function mostrar_ocultar(valorMO) {
+    if (valorMO == "val_mostrar") {
         document.getElementById("divMO").style.display = 'block';
-    }else if(valorMO=="val_ocular"){
+    } else if (valorMO == "val_ocular") {
         document.getElementById("divMO").style.display = 'none';
     }
 }
-function calcularsuma(){
-    var num1,num2;
-    num1=number(document.getElementById("sum_num1")[0].value);
-    num2=number(document.getElementById("sum_num2")[0].value);
-    document.getElementById("sum_total").value=num1+num2;
+
+function calcularsuma() {
+    var num1, num2;
+    num1 = number(document.getElementById("sum_num1")[0].value);
+    num2 = number(document.getElementById("sum_num2")[0].value);
+    document.getElementById("sum_total").value = num1 + num2;
 }
-function calcularresta(){
-    var num1,num2;
-    num1=number(document.getElementById("res_num1")[0].value);
-    num2=number(document.getElementById("res_num2")[0].value);
-    document.getElementById("res_total").value=num1-num2;
+
+function calcularresta() {
+    var num1, num2;
+    num1 = number(document.getElementById("res_num1")[0].value);
+    num2 = number(document.getElementById("res_num2")[0].value);
+    document.getElementById("res_total").value = num1 - num2;
 }
-function calcularproducto(){
-    var num1,num2;
-    num1=number(document.getElementById("mul_num1")[0].value);
-    num2=number(document.getElementById("mul_num2")[0].value);
-    document.getElementById("mul_total").value=num1*num2;
+
+function calcularproducto() {
+    var num1, num2;
+    num1 = number(document.getElementById("mul_num1")[0].value);
+    num2 = number(document.getElementById("mul_num2")[0].value);
+    document.getElementById("mul_total").value = num1 * num2;
 }
-function calculardiv(){
-    var num1,num2;
-    num1=number(document.getElementById("div_num1")[0].value);
-    num2=number(document.getElementById("div_num2")[0].value);
-    document.getElementById("div_total").value=num1/num2;
+
+function calculardiv() {
+    var num1, num2;
+    num1 = number(document.getElementById("div_num1")[0].value);
+    num2 = number(document.getElementById("div_num2")[0].value);
+    document.getElementById("div_total").value = num1 / num2;
 }
