@@ -181,3 +181,15 @@ function limpiarcanvas(){
 
    canvas.width = canvas.width;
 }
+function dibujarimagen(posx,posy){
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  console.log(posx,posy);
+  var img = new Image();
+  img.src = "images/auto.png";
+  img.onload = function (){
+      ctx.drawImage(img,0,0);
+  }
+
+
+}
