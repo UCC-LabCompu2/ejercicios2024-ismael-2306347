@@ -148,23 +148,23 @@ function calcularsuma(){
     var num1,num2;
     num1=number(document.getElementById("sum_num1")[0].value);
     num2=number(document.getElementById("sum_num2")[0].value);
-    document.getElementById("sum_total").value=num1+num2;
+    document.getElementById("sum_total")[0].innerHTML=num1+num2;
 }
 function calcularresta(){
     var num1,num2;
     num1=number(document.getElementById("res_num1")[0].value);
     num2=number(document.getElementById("res_num2")[0].value);
-    document.getElementById("res_total").value=num1-num2;
+    document.getElementById("res_total")[0].innerHTML=num1-num2;
 }
 function calcularproducto(){
     var num1,num2;
     num1=number(document.getElementById("mul_num1")[0].value);
     num2=number(document.getElementById("mul_num2")[0].value);
-    document.getElementById("mul_total").value=num1*num2;
+    document.getElementById("mul_total")[0].innerHTML=num1*num2;
 }
 function calculardiv(){
     var num1,num2;
     num1=number(document.getElementById("div_num1")[0].value);
     num2=number(document.getElementById("div_num2")[0].value);
-    document.getElementById("div_total").value=num1/num2;
+    document.getElementById("div_total")[0].innerHTML=num1/num2;
 }
